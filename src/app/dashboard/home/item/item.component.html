@@ -1,0 +1,27 @@
+<!-- <section class="item o-unset mat-typography" layout-fill="layout-fill"> -->
+  
+<ng-container *ngIf="habilitarLink; else template">
+      <a  href="{{item.linkResource}}" target="_top">
+            <img class="tile-image"  src="{{item.imagem?.url }}" alt="{{item.titulo}}" >
+
+      
+            <mat-grid-tile-footer>
+            
+                  {{item.titulo}}
+
+            </mat-grid-tile-footer>
+            
+      </a>
+</ng-container>
+<ng-template #template >
+      <img class="tile-image"  src="{{item.imagem?.url }}" alt="{{item.titulo}}" >
+      <!-- <a  href="{{item.linkResource}}" target="_blank"> -->
+            <mat-grid-tile-footer>
+               
+                  {{item.titulo}}
+      
+            </mat-grid-tile-footer>
+                  
+            <!-- </a>  -->
+</ng-template>
+<!-- </section> -->
