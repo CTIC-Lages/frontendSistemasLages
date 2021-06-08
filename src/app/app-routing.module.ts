@@ -7,13 +7,9 @@ import { FrameComponent } from './dashboard/home/frame/frame.component';
 // import { ItemComponent } from './home/item/item.component';
 
 const routes: Routes = [
-  // {path:'', component: HomeComponent},
-  // {path:'/item', component: ItemComponent},
-  // {path:'imagem', component: ImagemComponent},
-  // {path:'', pathMatch:'full',redirectTo:'/main/people'},
-  // {path:'main', loadChildren:'./main/main.module#MainModule'}
-  // {path:'site', loadChildren: ()=>import('./dashboard/dashboard.module').then( m=> m.DashboardModule), canActivate:[AuthGuard]},
-   {path:'auth/login', component: LoginComponent},
+  //chama o compoente Login 
+  {path:'auth/login', component: LoginComponent},
+  //chama o modulo dashboard, mostra apenas pra quem tem permissão.
   {path:'site', loadChildren: ()=>import('./dashboard/dashboard.module').then( m=> m.DashboardModule),  canActivate:[AuthGuard]},
   
   {path:'frame', component: FrameComponent},

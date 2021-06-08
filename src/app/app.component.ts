@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { AuthService } from './auth/auth.service';
@@ -20,10 +19,11 @@ export class AppComponent {
   public user$:Observable<Usuario>
   public permissao$:Observable<boolean>
   public logo:string =  environment.logo
-  constructor( private router:Router, private authService:AuthService, private cookie:CookieService ){
+  constructor( private authService:AuthService ){
    
     
   }
+  //carregando os serviços depois que o componente html foi carregado
   ngOnInit(){
     this.authenticated$= this.authService.isAuthenticated()
     this.user$ = this.authService.getUser()
@@ -31,14 +31,14 @@ export class AppComponent {
     
   }
 
-  logout(){
+  // logout(){
     
-    this.authService.logout()
-    console.log("Chamando logout")
-    this.cookie.deleteAll()
+  //   this.authService.logout()
+  //   console.log("Chamando logout")
+  //   this.cookie.deleteAll()
     // this.router.navigateByUrl('/auth/login')
     // window.location.href =environment.callback
-    window.location.href ="https://sistemas2.lages.ifsc.edu.br/api/login/logout/"
-  }
+  //   window.location.href ="https://sistemas2.lages.ifsc.edu.br/api/login/logout/"
+  // }
 
 }

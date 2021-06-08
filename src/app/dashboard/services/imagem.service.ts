@@ -6,7 +6,8 @@ import { Imagem } from '../models/imagem';
 import {tap} from 'rxjs/operators'
 
 import { Item } from '../models/item';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
+
 
 @Injectable()
 export class ImagemService {

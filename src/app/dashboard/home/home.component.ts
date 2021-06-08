@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
      }
     
  }
-
+// trocando tab após uma ação
   onTabChanged(event){
     // console.log(event)
     if(event.index ==0){

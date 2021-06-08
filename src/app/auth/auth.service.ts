@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, pipe } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
+
 import { Usuario } from './usuario';
 
 @Injectable({providedIn:'root'})
@@ -20,7 +21,7 @@ export class AuthService {
  
    }
 
-
+//Verifica o token vindo do backend após o login no IDP
   login():Observable<Usuario>{
      
     return this.http.get<Usuario>(`${this.url}/login/token`).pipe(
@@ -101,7 +102,7 @@ export class AuthService {
     )
     
   }
-
+//Verifica se o token ainda é valido.
   checkTokenValidation():Observable<boolean>{
     return this.http.get<Usuario>(`${this.url}/login/usuario/`).pipe(
       tap(

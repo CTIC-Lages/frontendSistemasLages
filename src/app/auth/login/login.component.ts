@@ -17,15 +17,14 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder, private authService:AuthService, private snackBar:MatSnackBar, private router:Router) { }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated()
+   //caso é identificado que o usuário não está conectado, é redirecionado para este o módulo o qual verifica o login. 
+   //caso se tiver logado, redireciona para a home. Senão manda para o backend
     this.authService.login().subscribe(
       (u) =>{
         // console.log("chamadno login")
         // console.log(u)
         if (u == null){
-          console.log()
-          // this.router.navigateByUrl('/site/home')
-          // window.location.href ="https://sistemas2.lages.ifsc.edu.br/api/login/logout/"
+       
           window.location.href =environment.callback
         }else{
            this.router.navigateByUrl('/site/home')
